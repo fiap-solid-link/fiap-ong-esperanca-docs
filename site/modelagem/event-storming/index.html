@@ -1,0 +1,3114 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação da plataforma Conexão Solidária — Hackathon 9NETT FIAP | ONG Esperança Solidária">
+      
+      
+        <meta name="author" content="Equipe Hackathon 9NETT">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../domain-storytelling/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.28">
+    
+    
+      
+        <title>Event Storming — Conexão Solidária - Conexão Solidária</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.6f2fbb28.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegação"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#event-storming-conexao-solidaria" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Conexão Solidária" class="md-header__button md-logo" aria-label="Conexão Solidária" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegação">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Conexão Solidária
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Event Storming — Conexão Solidária
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Pesquisar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Pesquisar">
+  <button type="button" class="md-search__button">
+    Pesquisar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contexto/" class="md-tabs__link">
+        
+  
+  Contexto do Projeto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Modelagem de Domínio
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../arquitetura/" class="md-tabs__link">
+          
+  
+  Arquitetura
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../execucao/" class="md-tabs__link">
+          
+  
+  Execução
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Conexão Solidária" class="md-nav__button md-logo" aria-label="Conexão Solidária" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    Conexão Solidária
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contexto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexto do Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelagem de Domínio
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modelagem de Domínio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Storming — Conexão Solidária
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Storming — Conexão Solidária
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#legenda-de-notacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legenda de Notação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Picture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Big Picture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-1-domain-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1 — Domain Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 1 — Domain Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swimlane-identidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlane: Identidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swimlane-campanhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlane: Campanhas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swimlane-doacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlane: Doações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swimlane-transparencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlane: Transparência
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-2-hot-spots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2 — Hot Spots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-3-eventos-pivotais-e-swimlanes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 3 — Eventos Pivotais e Swimlanes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 3 — Eventos Pivotais e Swimlanes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventos-pivotais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos Pivotais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swimlanes-bounded-contexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlanes (Bounded Contexts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-temporal-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo Temporal Principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Level
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Level">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-4-comandos-atores-e-politicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 4 — Comandos, Atores e Políticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 4 — Comandos, Atores e Políticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏷️ Identidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campanhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Campanhas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💳 Doações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparencia-consultas-somente-leitura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👁️ Transparência — Consultas (Somente Leitura)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-5-read-models-e-agregados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 5 — Read Models e Agregados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 5 — Read Models e Agregados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 Read Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregado-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Agregado: Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregado-campanha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Agregado: Campanha
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregado-doacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Agregado: Doacao
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-bounded-contexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama de Bounded Contexts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisoes-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisões de Domínio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decisões de Domínio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#d1-identidade-e-perfis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D1 — Identidade e Perfis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d2-campanhas-ciclo-de-vida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D2 — Campanhas: Ciclo de Vida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d3-campanhas-modo-de-encerramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D3 — Campanhas: Modo de Encerramento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d4-doacoes-fluxo-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D4 — Doações: Fluxo Completo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d5-doacoes-race-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D5 — Doações: Race Condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d6-doacoes-falhas-no-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D6 — Doações: Falhas no Worker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d7-transparencia-painel-publico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D7 — Transparência: Painel Público
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domain-storytelling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain Storytelling — Conexão Solidária
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../arquitetura/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arquitetura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsserviços
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Microsserviços
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/microsservicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsserviços
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/microsservicos/fiap-ong-esperanca-gateway-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fiap-ong-esperanca-gateway-api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/microsservicos/fiap-ong-esperanca-identity-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fiap-ong-esperanca-identity-api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/microsservicos/fiap-ong-esperanca-campanhas-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fiap-ong-esperanca-campanhas-api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/microsservicos/fiap-ong-esperanca-worker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fiap-ong-esperanca-worker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../arquitetura/decisoes-arquiteturais/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisões Arquiteturais
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Decisões Arquiteturais
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-01-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-01 — Stack Tecnológica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-02-microsservicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-02 — Divisão de Microsserviços
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-03-arquitetura-interna/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-03 — Arquitetura Interna dos Serviços
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-04-persistencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-04 — Persistência de Dados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-05-mensageria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-05 — Mensageria e Comunicação Assíncrona
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-06-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-06 — Autenticação e Autorização Cross-Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-07-api-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-07 — API Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-08-observabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-08 — Observabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-09-infraestrutura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-09 — Infraestrutura e Deploy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/decisoes-arquiteturais/registros/adr-10-testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-10 — Estratégia de Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../execucao/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Execução
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Execução
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../execucao/tarefas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tarefas de Execução — Conexão Solidária
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#legenda-de-notacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legenda de Notação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Picture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Big Picture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-1-domain-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1 — Domain Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 1 — Domain Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swimlane-identidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlane: Identidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swimlane-campanhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlane: Campanhas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swimlane-doacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlane: Doações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swimlane-transparencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlane: Transparência
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-2-hot-spots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2 — Hot Spots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-3-eventos-pivotais-e-swimlanes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 3 — Eventos Pivotais e Swimlanes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 3 — Eventos Pivotais e Swimlanes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eventos-pivotais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eventos Pivotais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swimlanes-bounded-contexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swimlanes (Bounded Contexts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-temporal-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo Temporal Principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Level
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Level">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-4-comandos-atores-e-politicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 4 — Comandos, Atores e Políticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 4 — Comandos, Atores e Políticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏷️ Identidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campanhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Campanhas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💳 Doações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparencia-consultas-somente-leitura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👁️ Transparência — Consultas (Somente Leitura)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-5-read-models-e-agregados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 5 — Read Models e Agregados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 5 — Read Models e Agregados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 Read Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregado-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Agregado: Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregado-campanha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Agregado: Campanha
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregado-doacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟡 Agregado: Doacao
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-bounded-contexts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama de Bounded Contexts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisoes-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisões de Domínio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decisões de Domínio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#d1-identidade-e-perfis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D1 — Identidade e Perfis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d2-campanhas-ciclo-de-vida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D2 — Campanhas: Ciclo de Vida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d3-campanhas-modo-de-encerramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D3 — Campanhas: Modo de Encerramento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d4-doacoes-fluxo-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D4 — Doações: Fluxo Completo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d5-doacoes-race-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D5 — Doações: Race Condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d6-doacoes-falhas-no-worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D6 — Doações: Falhas no Worker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d7-transparencia-painel-publico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D7 — Transparência: Painel Público
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Modelagem de Domínio
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="event-storming-conexao-solidaria">Event Storming — Conexão Solidária<a class="headerlink" href="#event-storming-conexao-solidaria" title="Permanent link">&para;</a></h1>
+<p>Modelagem de domínio da plataforma <strong>Conexão Solidária</strong> utilizando <strong>Event Storming</strong> (Alberto Brandolini), do Big Picture até o Design Level.</p>
+<blockquote>
+<p><strong>Referência:</strong> Hackathon 9NETT — FIAP</p>
+</blockquote>
+<hr />
+<h2 id="legenda-de-notacao">Legenda de Notação<a class="headerlink" href="#legenda-de-notacao" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Tipo</th>
+<th>Descrição</th>
+<th>Exemplo no domínio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟠 Laranja</td>
+<td><strong>Domain Event</strong></td>
+<td>Fato relevante que aconteceu no domínio (passado)</td>
+<td><code>CampanhaAtivada</code></td>
+</tr>
+<tr>
+<td>🔴 Vermelho</td>
+<td><strong>Hot Spot / Pivotal</strong></td>
+<td>Risco, decisão pendente ou evento de transição entre fases</td>
+<td><code>DoacaoRecebidaEventPublicado</code></td>
+</tr>
+<tr>
+<td>🔵 Azul</td>
+<td><strong>Command</strong></td>
+<td>Ação que dispara um evento (imperativo)</td>
+<td><code>AtivarCampanha</code></td>
+</tr>
+<tr>
+<td>🟡 Amarelo</td>
+<td><strong>Actor</strong></td>
+<td>Pessoa ou sistema que executa o comando</td>
+<td><code>GestorONG</code></td>
+</tr>
+<tr>
+<td>🟣 Lilás</td>
+<td><strong>Policy</strong></td>
+<td>Regra automática que reage a um evento e dispara um comando</td>
+<td><code>Ao DoacaoProcessada → verificar meta</code></td>
+</tr>
+<tr>
+<td>🟢 Verde</td>
+<td><strong>Read Model</strong></td>
+<td>Dado projetado para leitura, consumido por um ator para tomar uma decisão</td>
+<td><code>ListaCampanhasView</code></td>
+</tr>
+<tr>
+<td>🟡 Amarelo-claro</td>
+<td><strong>Aggregate</strong></td>
+<td>Agrupamento de comandos e eventos com invariantes de domínio</td>
+<td><code>Campanha</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="big-picture">Big Picture<a class="headerlink" href="#big-picture" title="Permanent link">&para;</a></h2>
+<h3 id="fase-1-domain-events">Fase 1 — Domain Events<a class="headerlink" href="#fase-1-domain-events" title="Permanent link">&para;</a></h3>
+<p>Eventos de domínio distribuídos por swimlane em ordem temporal. Nós em losango (🔴) são <strong>eventos pivotais</strong> — marcam transição de contexto ou fronteira síncrono/assíncrono.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph IDENT["🏷️ IDENTIDADE"]
+        I1["🟠 UsuarioCadastrado"]
+        I2["🟠 PerfilAtualizado"]
+        I3["🟠 PerfilGestorConcedido"]
+        I4["🟠 PerfilGestorRevogado"]
+    end
+
+    subgraph CAMP["📋 CAMPANHAS"]
+        C1["🟠 CampanhaCriada"]
+        C2["🟠 CampanhaEditada"]
+        C3(["🔴 CampanhaAtivada — PIVOTAL"])
+        C4["🟠 CampanhaProrrogada"]
+        C5["🟠 CampanhaProximaDoVencimento"]
+        C6["🟠 CampanhaConcluidaPorData"]
+        C7["🟠 CampanhaConcluidaPorMeta"]
+        C8["🟠 CampanhaCancelada"]
+    end
+
+    subgraph DOA["💳 DOAÇÕES"]
+        D1["🟠 IntencaoDoacaoRecebida"]
+        D2["🟠 DoacaoRecusada"]
+        D3(["🔴 DoacaoRecebidaEvent — PIVOTAL"])
+        D4["🟠 DoacaoPersistida"]
+        D5["🟠 ValorArrecadadoAtualizado"]
+        D6(["🔴 DoacaoProcessada — PIVOTAL"])
+        D7["🟠 ProcessamentoDoacaoFalhou"]
+    end
+
+    subgraph TRANSP["👁️ TRANSPARÊNCIA — Read Side"]
+        T1["🟢 PainelMacroView"]
+        T2["🟢 ListaCampanhasView"]
+        T3["🟢 CampanhaTransparenciaView"]
+    end
+
+    I1 --&gt;|"GestorONG cadastrado"| C1
+    C3 --&gt;|"aceita doações"| D1
+    D3 --&gt;|"Worker consome"| D4
+    D6 --&gt;|"verifica meta"| C7
+    D6 --&gt;|"projeta"| T1</code></pre>
+<p><strong>Total: 23 Domain Events</strong> — 19 eventos 🟠 + 4 read models 🟢</p>
+<h4 id="swimlane-identidade">Swimlane: Identidade<a class="headerlink" href="#swimlane-identidade" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>🟠 Domain Event</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>UsuarioCadastrado</strong></td>
+<td>Cadastro público realizado. Perfil Doador atribuído automaticamente. Dados: Nome, Email, CPF, Senha (hash)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>PerfilAtualizado</strong></td>
+<td>Usuário atualizou dados do seu perfil (ex.: adicionou Apelido para exibição pública)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>PerfilGestorConcedido</strong></td>
+<td>Admin promoveu usuário existente ao perfil GestorONG (acumula com Doador)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>PerfilGestorRevogado</strong></td>
+<td>Admin revogou o perfil GestorONG de um usuário (volta a ser apenas Doador)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="swimlane-campanhas">Swimlane: Campanhas<a class="headerlink" href="#swimlane-campanhas" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>🟠 Domain Event</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td><strong>CampanhaCriada</strong></td>
+<td>GestorONG criou nova campanha. Status: Cadastrada. Campos: Título, Descrição, DataInicio, DataFim, MetaFinanceira, ModoEncerramento</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>CampanhaEditada</strong></td>
+<td>GestorONG editou dados da campanha. Permitido apenas no status Cadastrada</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>CampanhaAtivada</strong> 🔴</td>
+<td>GestorONG ativou a campanha manualmente. Transição: Cadastrada → EmAndamento</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>CampanhaProrrogada</strong></td>
+<td>GestorONG estendeu a DataFim da campanha. Permitido apenas em EmAndamento</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>CampanhaProximaDoVencimento</strong></td>
+<td>Scheduler detectou campanha EmAndamento com DataFim próxima e meta não atingida</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>CampanhaConcluidaPorData</strong></td>
+<td>Scheduler detectou que DataFim expirou. Transição: EmAndamento → Concluida</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>CampanhaConcluidaPorMeta</strong></td>
+<td>Domínio detectou ValorArrecadado &gt;= MetaFinanceira. Transição: EmAndamento → Concluida</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>CampanhaCancelada</strong></td>
+<td>GestorONG cancelou a campanha. Transição: EmAndamento → Cancelada</td>
+</tr>
+</tbody>
+</table>
+<h4 id="swimlane-doacoes">Swimlane: Doações<a class="headerlink" href="#swimlane-doacoes" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>🟠 Domain Event</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17</td>
+<td><strong>IntencaoDoacaoRecebida</strong></td>
+<td>Doador enviou intenção de doação. Validação da API passou: campanha EmAndamento, data não expirada, meta não atingida</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>DoacaoRecusada</strong></td>
+<td>Intenção de doação rejeitada. Motivos: campanha não EmAndamento, meta atingida, data expirada, valor inválido</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>DoacaoRecebidaEventPublicado</strong> 🔴</td>
+<td>Pivotal: fronteira síncrono → assíncrono. Evento publicado no RabbitMQ</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>DoacaoPersistida</strong></td>
+<td>Worker consumiu a fila e gravou a doação no MongoDB com sucesso</td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>ValorArrecadadoAtualizado</strong></td>
+<td>Worker somou o valor da doação ao ValorTotalArrecadado da campanha</td>
+</tr>
+<tr>
+<td>22</td>
+<td><strong>DoacaoProcessada</strong> 🔴</td>
+<td>Pivotal: Worker publicou <code>DoacaoProcessadaEvent</code> — ciclo assíncrono concluído</td>
+</tr>
+<tr>
+<td>23</td>
+<td><strong>ProcessamentoDoacaoFalhou</strong></td>
+<td>Worker esgotou todas as tentativas de retry. Mensagem enviada para DLQ</td>
+</tr>
+</tbody>
+</table>
+<h4 id="swimlane-transparencia">Swimlane: Transparência<a class="headerlink" href="#swimlane-transparencia" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Subdomínio de <strong>somente leitura</strong> 🟢. Não gera eventos de domínio — consome <strong>Read Models</strong> projetados a partir dos eventos das outras swimlanes.</p>
+</blockquote>
+<hr />
+<h3 id="fase-2-hot-spots">Fase 2 — Hot Spots<a class="headerlink" href="#fase-2-hot-spots" title="Permanent link">&para;</a></h3>
+<p>Pontos de atenção, riscos e decisões identificados durante a modelagem.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>🔴 Hot Spot</th>
+<th>Tipo</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Concorrência no ValorArrecadado</strong> — doações simultâneas processadas pelo Worker podem causar race condition na atualização do total</td>
+<td>Risco técnico</td>
+<td>Mitigado: aceitar doações acima da meta; consistência eventual</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Idempotência do processamento</strong> — se o Worker falhar após processar mas antes do ACK, a mensagem pode ser reprocessada</td>
+<td>Risco técnico</td>
+<td>Mitigado: retry com backoff + DLQ + evento <code>ProcessamentoDoacaoFalhou</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Validação de CPF</strong> — apenas validação de formato ou consulta de validade real em serviço externo?</td>
+<td>Decisão pendente</td>
+<td>Validação de formato no MVP</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Hash de senha</strong> — BCrypt obrigatório ou qualquer algoritmo seguro?</td>
+<td>Risco de segurança</td>
+<td>Resolvido: BCrypt via <code>BCrypt.Net-Next</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Bloqueio de conta por tentativas falhas</strong></td>
+<td>Evolução futura</td>
+<td>Não modelado no MVP</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Canal de notificação</strong> — <code>CampanhaProximaDoVencimento</code> gera notificação, mas por qual canal?</td>
+<td>Decisão pendente</td>
+<td>Log estruturado no MVP; email via SendGrid como evolução</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Política de retry do Worker</strong> — quantas tentativas? Qual intervalo?</td>
+<td>Decisão pendente</td>
+<td>Resolvido: 3 tentativas, backoff exponencial (1s, 4s, 16s)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Latência dos read models</strong> — consistência eventual na projeção MongoDB</td>
+<td>Risco técnico</td>
+<td>Aceito: latência de segundos é OK para painel público</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Período de "proximidade" do vencimento</strong> — quantos dias antes?</td>
+<td>Decisão pendente</td>
+<td>Resolvido: 3 dias, configurável via <code>appsettings.json</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="fase-3-eventos-pivotais-e-swimlanes">Fase 3 — Eventos Pivotais e Swimlanes<a class="headerlink" href="#fase-3-eventos-pivotais-e-swimlanes" title="Permanent link">&para;</a></h3>
+<h4 id="eventos-pivotais">Eventos Pivotais<a class="headerlink" href="#eventos-pivotais" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>🔴 Evento Pivotal</th>
+<th>Tipo de Pivô</th>
+<th>Impacto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UsuarioCadastrado</strong></td>
+<td>Identidade → Sistema</td>
+<td>Habilita o usuário em todos os fluxos subsequentes</td>
+</tr>
+<tr>
+<td><strong>CampanhaAtivada</strong></td>
+<td>Negócio</td>
+<td>Campanha passa a ser visível no painel e aceita doações</td>
+</tr>
+<tr>
+<td><strong>DoacaoRecebidaEventPublicado</strong></td>
+<td>Arquitetural</td>
+<td>Fronteira entre processamento <strong>síncrono</strong> (API) e <strong>assíncrono</strong> (Worker)</td>
+</tr>
+<tr>
+<td><strong>DoacaoProcessada</strong></td>
+<td>Integração</td>
+<td>Pivô entre processamento assíncrono e atualização do domínio de Campanhas</td>
+</tr>
+</tbody>
+</table>
+<h4 id="swimlanes-bounded-contexts">Swimlanes (Bounded Contexts)<a class="headerlink" href="#swimlanes-bounded-contexts" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Swimlane</th>
+<th>Notação</th>
+<th>Eventos</th>
+<th>Responsabilidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identidade</strong></td>
+<td>🟠</td>
+<td>#1 – #7</td>
+<td>Registro de usuários, autenticação, gestão de perfis</td>
+</tr>
+<tr>
+<td><strong>Campanhas</strong></td>
+<td>🟠</td>
+<td>#8 – #16</td>
+<td>Criação, edição, ativação, ciclo de vida completo, scheduler</td>
+</tr>
+<tr>
+<td><strong>Doações</strong></td>
+<td>🟠</td>
+<td>#17 – #23</td>
+<td>Intenção de doação, processamento assíncrono, persistência, falhas</td>
+</tr>
+<tr>
+<td><strong>Transparência</strong></td>
+<td>🟢</td>
+<td><em>(Read Models)</em></td>
+<td>Consultas públicas — consome projeções, não gera eventos</td>
+</tr>
+</tbody>
+</table>
+<h4 id="fluxo-temporal-principal">Fluxo Temporal Principal<a class="headerlink" href="#fluxo-temporal-principal" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Identidade
+        I1["🟠 UsuarioCadastrado\n(perfil Doador)"]
+        I2["🟠 PerfilGestorConcedido"]
+        I3["🟠 UsuarioAutenticado"]
+    end
+
+    subgraph Campanhas_Criacao["Campanhas — Criação"]
+        C1["🟠 CampanhaCriada (Cadastrada)"]
+        C2(["🔴 CampanhaAtivada (EmAndamento)\nPIVOTAL"])
+    end
+
+    subgraph Campanhas_Exec["Campanhas — Execução"]
+        C3["🟠 CampanhaProximaDoVencimento"]
+        C4["🟠 CampanhaConcluidaPorData"]
+        C5["🟠 CampanhaCancelada"]
+    end
+
+    subgraph Doacoes_API["Doações — API (síncrono)"]
+        D1["🟠 IntencaoDoacaoRecebida"]
+        D2(["🔴 DoacaoRecebidaEvent Publicado\nPIVOTAL — síncrono → assíncrono"])
+    end
+
+    subgraph Doacoes_Worker["Doações — Worker (assíncrono)"]
+        W1["🟠 DoacaoPersistida"]
+        W2["🟠 ValorArrecadadoAtualizado"]
+        W3(["🔴 DoacaoProcessada — PIVOTAL"])
+    end
+
+    subgraph Policy["🟣 Campanhas — Policy"]
+        P1{"Meta atingida?"}
+        P2["🟠 CampanhaConcluidaPorMeta"]
+    end
+
+    I1 --&gt; I2 --&gt; I3
+    I3 --&gt; C1 --&gt; C2
+    C2 --&gt; C3 &amp; D1 &amp; C5
+    C3 --&gt; C4
+    D1 --&gt; D2
+    D2 --&gt; W1 --&gt; W2 --&gt; W3
+    W3 --&gt; P1
+    P1 --&gt;|Sim| P2
+
+    style C2 fill:#ff9999,stroke:#cc0000
+    style D2 fill:#ff9999,stroke:#cc0000
+    style W3 fill:#ff9999,stroke:#cc0000</code></pre>
+<hr />
+<h2 id="design-level">Design Level<a class="headerlink" href="#design-level" title="Permanent link">&para;</a></h2>
+<h3 id="fase-4-comandos-atores-e-politicas">Fase 4 — Comandos, Atores e Políticas<a class="headerlink" href="#fase-4-comandos-atores-e-politicas" title="Permanent link">&para;</a></h3>
+<h4 id="identidade">🏷️ Identidade<a class="headerlink" href="#identidade" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>🔵 Comando</th>
+<th>🟡 Ator</th>
+<th>🟣 Política / Regra de Negócio</th>
+<th>🟠 Evento(s) Resultante(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CadastrarUsuario</strong></td>
+<td>Visitante</td>
+<td>Email único; CPF formato válido; senha com hash; perfil Doador automático</td>
+<td><code>UsuarioCadastrado</code> / <code>CadastroUsuarioRejeitado</code></td>
+</tr>
+<tr>
+<td><strong>Autenticar</strong></td>
+<td>Visitante</td>
+<td>Validar email + senha contra hash armazenado</td>
+<td><code>UsuarioAutenticado</code> / <code>AutenticacaoFalhou</code></td>
+</tr>
+<tr>
+<td><strong>AtualizarPerfil</strong></td>
+<td>Doador / GestorONG</td>
+<td>Campos editáveis; Apelido opcional</td>
+<td><code>PerfilAtualizado</code></td>
+</tr>
+<tr>
+<td><strong>ConcederPerfilGestor</strong></td>
+<td>Admin</td>
+<td>Usuário-alvo deve existir e não possuir perfil GestorONG</td>
+<td><code>PerfilGestorConcedido</code></td>
+</tr>
+<tr>
+<td><strong>RevogarPerfilGestor</strong></td>
+<td>Admin</td>
+<td>Usuário-alvo deve possuir perfil GestorONG</td>
+<td><code>PerfilGestorRevogado</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="campanhas">📋 Campanhas<a class="headerlink" href="#campanhas" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>🔵 Comando</th>
+<th>🟡 Ator</th>
+<th>🟣 Política / Regra de Negócio</th>
+<th>🟠 Evento(s) Resultante(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CriarCampanha</strong></td>
+<td>GestorONG</td>
+<td>DataFim &gt; agora; MetaFinanceira &gt; 0; ModoEncerramento válido</td>
+<td><code>CampanhaCriada</code> / <code>CriacaoCampanhaRejeitada</code></td>
+</tr>
+<tr>
+<td><strong>EditarCampanha</strong></td>
+<td>GestorONG</td>
+<td>Campanha deve estar no status <strong>Cadastrada</strong></td>
+<td><code>CampanhaEditada</code></td>
+</tr>
+<tr>
+<td><strong>AtivarCampanha</strong></td>
+<td>GestorONG</td>
+<td>Campanha deve estar no status <strong>Cadastrada</strong></td>
+<td><code>CampanhaAtivada</code></td>
+</tr>
+<tr>
+<td><strong>ProrrogarCampanha</strong></td>
+<td>GestorONG</td>
+<td>Status <strong>EmAndamento</strong>; nova DataFim &gt; DataFim atual</td>
+<td><code>CampanhaProrrogada</code></td>
+</tr>
+<tr>
+<td><strong>CancelarCampanha</strong></td>
+<td>GestorONG</td>
+<td>Status <strong>EmAndamento</strong></td>
+<td><code>CampanhaCancelada</code></td>
+</tr>
+<tr>
+<td><strong>VerificarVencimento</strong> <em>(Scheduler)</em></td>
+<td>Sistema</td>
+<td>Campanhas EmAndamento com DataFim próxima e meta não atingida</td>
+<td><code>CampanhaProximaDoVencimento</code></td>
+</tr>
+<tr>
+<td><strong>EncerrarPorData</strong> <em>(Scheduler)</em></td>
+<td>Sistema</td>
+<td>Campanhas EmAndamento com DataFim expirada e modo PorData/PorDataOuMeta</td>
+<td><code>CampanhaConcluidaPorData</code></td>
+</tr>
+<tr>
+<td><strong>AtualizarArrecadacao</strong> <em>(🟣 Policy)</em></td>
+<td>Sistema</td>
+<td>Ao consumir <code>DoacaoProcessadaEvent</code> → soma ValorDoacao ao total</td>
+<td><code>ValorArrecadadoAtualizado</code></td>
+</tr>
+<tr>
+<td><strong>EncerrarPorMeta</strong> <em>(🟣 Policy)</em></td>
+<td>Sistema</td>
+<td>ValorArrecadado &gt;= MetaFinanceira e modo PorMeta/PorDataOuMeta</td>
+<td><code>CampanhaConcluidaPorMeta</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="doacoes">💳 Doações<a class="headerlink" href="#doacoes" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>🔵 Comando</th>
+<th>🟡 Ator</th>
+<th>🟣 Política / Regra de Negócio</th>
+<th>🟠 Evento(s) Resultante(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EnviarIntencaoDoacao</strong></td>
+<td>Doador (autenticado)</td>
+<td>Campanha <strong>EmAndamento</strong>; ValorDoacao &gt; 0; meta não atingida</td>
+<td><code>IntencaoDoacaoRecebida</code> / <code>DoacaoRecusada</code></td>
+</tr>
+<tr>
+<td><strong>PublicarNoBroker</strong> <em>(🟣 Policy)</em></td>
+<td>Sistema</td>
+<td>Após <code>IntencaoDoacaoRecebida</code> → publica <code>DoacaoRecebidaEvent</code> no RabbitMQ</td>
+<td><code>DoacaoRecebidaEventPublicado</code></td>
+</tr>
+<tr>
+<td><strong>PersistirDoacao</strong> <em>(Worker)</em></td>
+<td>Sistema</td>
+<td>Consome mensagem → grava doação no MongoDB</td>
+<td><code>DoacaoPersistida</code></td>
+</tr>
+<tr>
+<td><strong>SomarValorCampanha</strong> <em>(Worker)</em></td>
+<td>Sistema</td>
+<td>Atualiza ValorTotalArrecadado</td>
+<td><code>ValorArrecadadoAtualizado</code></td>
+</tr>
+<tr>
+<td><strong>PublicarProcessamento</strong> <em>(Worker)</em></td>
+<td>Sistema</td>
+<td>Publica <code>DoacaoProcessadaEvent</code></td>
+<td><code>DoacaoProcessada</code></td>
+</tr>
+<tr>
+<td><strong>EnviarParaDLQ</strong> <em>(Worker)</em></td>
+<td>Sistema</td>
+<td>Após esgotamento de retries → mensagem para DLQ</td>
+<td><code>ProcessamentoDoacaoFalhou</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="transparencia-consultas-somente-leitura">👁️ Transparência — Consultas (Somente Leitura)<a class="headerlink" href="#transparencia-consultas-somente-leitura" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>🔵 Consulta</th>
+<th>🟡 Ator</th>
+<th>🟢 Read Model Consumido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ConsultarVisaoMacro</strong></td>
+<td>Visitante / Doador</td>
+<td><code>PainelMacroView</code> — total geral + Top 3 doadores</td>
+</tr>
+<tr>
+<td><strong>ConsultarListaCampanhas</strong></td>
+<td>Visitante / Doador</td>
+<td><code>ListaCampanhasView</code> — ativas primeiro, depois encerradas</td>
+</tr>
+<tr>
+<td><strong>ConsultarDetalheCampanha</strong></td>
+<td>Visitante / Doador</td>
+<td><code>CampanhaTransparenciaView</code> — detalhe + doações anonimizadas</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="fase-5-read-models-e-agregados">Fase 5 — Read Models e Agregados<a class="headerlink" href="#fase-5-read-models-e-agregados" title="Permanent link">&para;</a></h3>
+<h4 id="read-models">🟢 Read Models<a class="headerlink" href="#read-models" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>🟢 Read Model</th>
+<th>Dados</th>
+<th>Fonte de Projeção</th>
+<th>Consumidor</th>
+<th>Armazenamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PainelMacroView</strong></td>
+<td>Total geral arrecadado; Top 3 maiores doadores (Apelido ou "Anônimo")</td>
+<td><code>DoacaoProcessada</code> + <code>PerfilAtualizado</code></td>
+<td>Endpoint público</td>
+<td>MongoDB</td>
+</tr>
+<tr>
+<td><strong>ListaCampanhasView</strong></td>
+<td>Lista de campanhas: título, meta, valor arrecadado, status, data encerramento</td>
+<td><code>CampanhaAtivada</code>, <code>CampanhaConcluida*</code>, <code>CampanhaCancelada</code>, <code>ValorArrecadadoAtualizado</code></td>
+<td>Endpoint público</td>
+<td>MongoDB</td>
+</tr>
+<tr>
+<td><strong>CampanhaTransparenciaView</strong></td>
+<td>Detalhe da campanha + lista de doações anonimizadas (valor + data)</td>
+<td>Eventos de Campanha + <code>DoacaoPersistida</code></td>
+<td>Endpoint público</td>
+<td>MongoDB</td>
+</tr>
+<tr>
+<td><strong>CampanhaGestaoView</strong></td>
+<td>Todos os campos + histórico completo de alterações (auditoria)</td>
+<td>Todos os eventos da swimlane Campanhas</td>
+<td>GestorONG (autenticado)</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td><strong>PerfilUsuarioView</strong></td>
+<td>Nome, Email, CPF, Apelido, lista de perfis</td>
+<td>Eventos da swimlane Identidade</td>
+<td>Doador / GestorONG / Admin</td>
+<td>PostgreSQL</td>
+</tr>
+</tbody>
+</table>
+<h4 id="agregado-usuario">🟡 Agregado: Usuario<a class="headerlink" href="#agregado-usuario" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔵 Comandos</strong></td>
+<td><code>CadastrarUsuario</code>, <code>Autenticar</code>, <code>AtualizarPerfil</code>, <code>ConcederPerfilGestor</code>, <code>RevogarPerfilGestor</code></td>
+</tr>
+<tr>
+<td><strong>🟠 Eventos</strong></td>
+<td><code>UsuarioCadastrado</code>, <code>CadastroUsuarioRejeitado</code>, <code>UsuarioAutenticado</code>, <code>AutenticacaoFalhou</code>, <code>PerfilAtualizado</code>, <code>PerfilGestorConcedido</code>, <code>PerfilGestorRevogado</code></td>
+</tr>
+<tr>
+<td><strong>Invariantes</strong></td>
+<td>Email único; CPF válido (11 dígitos + verificadores); senha com hash; Admin via seed; GestorONG acumula perfil Doador</td>
+</tr>
+</tbody>
+</table>
+<h4 id="agregado-campanha">🟡 Agregado: Campanha<a class="headerlink" href="#agregado-campanha" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔵 Comandos</strong></td>
+<td><code>CriarCampanha</code>, <code>EditarCampanha</code>, <code>AtivarCampanha</code>, <code>ProrrogarCampanha</code>, <code>CancelarCampanha</code></td>
+</tr>
+<tr>
+<td><strong>🟠 Eventos</strong></td>
+<td><code>CampanhaCriada</code>, <code>CriacaoCampanhaRejeitada</code>, <code>CampanhaEditada</code>, <code>CampanhaAtivada</code>, <code>CampanhaProrrogada</code>, <code>CampanhaProximaDoVencimento</code>, <code>CampanhaConcluidaPorData</code>, <code>CampanhaConcluidaPorMeta</code>, <code>CampanhaCancelada</code>, <code>ValorArrecadadoAtualizado</code></td>
+</tr>
+<tr>
+<td><strong>Invariantes</strong></td>
+<td>DataFim &gt; agora (na criação); MetaFinanceira &gt; 0; transições unidirecionais; edição só em Cadastrada; prorrogação só em EmAndamento com nova DataFim &gt; atual</td>
+</tr>
+</tbody>
+</table>
+<h4 id="agregado-doacao">🟡 Agregado: Doacao<a class="headerlink" href="#agregado-doacao" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Detalhe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔵 Comandos</strong></td>
+<td><code>EnviarIntencaoDoacao</code>, <code>ProcessarDoacao</code></td>
+</tr>
+<tr>
+<td><strong>🟠 Eventos</strong></td>
+<td><code>IntencaoDoacaoRecebida</code>, <code>DoacaoRecusada</code>, <code>DoacaoRecebidaEventPublicado</code>, <code>DoacaoPersistida</code>, <code>DoacaoProcessada</code>, <code>ProcessamentoDoacaoFalhou</code></td>
+</tr>
+<tr>
+<td><strong>Invariantes</strong></td>
+<td>Campanha associada deve estar EmAndamento; ValorDoacao &gt; 0; doações validadas pela API são sempre processadas; falha no Worker após retries resulta em DLQ</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="diagrama-de-bounded-contexts">Diagrama de Bounded Contexts<a class="headerlink" href="#diagrama-de-bounded-contexts" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TB
+    subgraph CS["CONEXÃO SOLIDÁRIA"]
+        subgraph IDENT["IDENTIDADE"]
+            ID_N["🟡 Usuario\n🟠 Eventos: 7"]
+        end
+
+        subgraph CAMP["CAMPANHAS"]
+            CAMP_N["🟡 Campanha\n🟠 Eventos: 9"]
+        end
+
+        subgraph DOA["DOAÇÕES"]
+            DOA_N["🟡 Doacao\n🟠 Eventos: 7"]
+        end
+
+        subgraph TRANSP["TRANSPARÊNCIA (Read Side)"]
+            T_N["🟢 PainelMacroView\n🟢 ListaCampanhasView\n🟢 CampanhaTransparenciaView\nArmazenamento: MongoDB"]
+        end
+
+        DOA_N --&gt;|"🟠 DoacaoProcessadaEvent"| CAMP_N
+        ID_N --&gt; T_N
+        CAMP_N --&gt; T_N
+        DOA_N --&gt; T_N
+    end</code></pre>
+<hr />
+<h2 id="decisoes-de-dominio">Decisões de Domínio<a class="headerlink" href="#decisoes-de-dominio" title="Permanent link">&para;</a></h2>
+<p>Decisões tomadas na sessão de descoberta que complementam o documento original do Hackathon.</p>
+<h3 id="d1-identidade-e-perfis">D1 — Identidade e Perfis<a class="headerlink" href="#d1-identidade-e-perfis" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Admin</strong> é pré-cadastrado (seed), não há fluxo de cadastro para este perfil</li>
+<li><strong>Doador e GestorONG</strong> se cadastram pelo <strong>mesmo fluxo público</strong></li>
+<li>Todo cadastro público nasce automaticamente com perfil <strong>Doador</strong></li>
+<li>Admin pode <strong>promover</strong> um usuário a GestorONG (acumula perfis — GestorONG também é Doador)</li>
+<li>Admin pode <strong>revogar</strong> o perfil GestorONG</li>
+<li>Campo <strong>Apelido</strong> é opcional, configurável na edição de perfil (usado para exibição no ranking de transparência; se ausente, exibe "Anônimo")</li>
+</ul>
+<h3 id="d2-campanhas-ciclo-de-vida">D2 — Campanhas: Ciclo de Vida<a class="headerlink" href="#d2-campanhas-ciclo-de-vida" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Cadastrada : criar campanha
+    Cadastrada --&gt; EmAndamento : ativar (manual GestorONG)
+    Cadastrada --&gt; [*] : excluir (sem evento de domínio)
+    EmAndamento --&gt; Concluida : concluir (por data ou meta)
+    EmAndamento --&gt; Cancelada : cancelar
+    Concluida --&gt; [*]
+    Cancelada --&gt; [*]</code></pre>
+<ul>
+<li><strong>Cadastrada</strong>: estado inicial, todos os campos editáveis</li>
+<li><strong>EmAndamento</strong>: campanha ativa recebendo doações, só permite <strong>prorrogar DataFim</strong></li>
+<li><strong>Concluida</strong>: encerrada (por data, por meta ou ambos), imutável</li>
+<li><strong>Cancelada</strong>: só a partir de EmAndamento; campanha Cadastrada pode ser excluída/descartada sem evento de domínio</li>
+<li>Transição Cadastrada → EmAndamento é por <strong>ativação manual</strong> do GestorONG</li>
+</ul>
+<h3 id="d3-campanhas-modo-de-encerramento">D3 — Campanhas: Modo de Encerramento<a class="headerlink" href="#d3-campanhas-modo-de-encerramento" title="Permanent link">&para;</a></h3>
+<p>Configurável no cadastro da campanha, com <strong>3 modos</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>Comportamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PorData</strong></td>
+<td>Encerra automaticamente quando DataFim expira (scheduler)</td>
+</tr>
+<tr>
+<td><strong>PorMeta</strong></td>
+<td>Encerra automaticamente quando ValorArrecadado &gt;= MetaFinanceira</td>
+</tr>
+<tr>
+<td><strong>PorDataOuMeta</strong></td>
+<td>Encerra pelo que acontecer primeiro</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Scheduler</strong> verifica periodicamente campanhas EmAndamento:</li>
+<li>DataFim próxima + meta não atingida → gera notificação para gestor prorrogar</li>
+<li>DataFim expirada → conclui automaticamente (modos PorData e PorDataOuMeta)</li>
+</ul>
+<h3 id="d4-doacoes-fluxo-completo">D4 — Doações: Fluxo Completo<a class="headerlink" href="#d4-doacoes-fluxo-completo" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Doador envia <strong>intenção de doação</strong> (IdCampanha + Valor)</li>
+<li>API valida: campanha EmAndamento? Meta não atingida conforme critério de encerramento?</li>
+<li><strong>Se válida</strong> → publica <code>DoacaoRecebidaEvent</code> no broker (RabbitMQ)</li>
+<li><strong>Se inválida</strong> → rejeita com justificativa; se motivo for "meta atingida", solicita encerramento da campanha</li>
+<li>Worker consome a fila → (1) persiste doação no MongoDB → (2) publica <code>DoacaoProcessadaEvent</code></li>
+<li>Domínio de Campanhas consome <code>DoacaoProcessadaEvent</code> → atualiza ValorArrecadado → verifica se meta foi atingida conforme modo de encerramento → se sim, conclui a campanha</li>
+</ol>
+<h3 id="d5-doacoes-race-condition">D5 — Doações: Race Condition<a class="headerlink" href="#d5-doacoes-race-condition" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Doações acima da meta são aceitas</strong> — se a intenção passou pela validação da API, o Worker sempre processa</li>
+<li>Encerramento por meta é verificado reativamente pelo domínio de Campanhas ao consumir <code>DoacaoProcessadaEvent</code></li>
+</ul>
+<h3 id="d6-doacoes-falhas-no-worker">D6 — Doações: Falhas no Worker<a class="headerlink" href="#d6-doacoes-falhas-no-worker" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Worker com <strong>retry/redelivery</strong> (3 tentativas com backoff exponencial)</li>
+<li>Se todas as tentativas falharem → mensagem vai para <strong>DLQ</strong> (Dead Letter Queue)</li>
+<li>Gera evento <strong>ProcessamentoDoacaoFalhou</strong> para auditoria</li>
+</ul>
+<h3 id="d7-transparencia-painel-publico">D7 — Transparência: Painel Público<a class="headerlink" href="#d7-transparencia-painel-publico" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Visão macro</strong>: total geral arrecadado + Top 3 maiores doadores (exibe Apelido ou "Anônimo")</li>
+<li><strong>Lista de campanhas</strong>: ativas primeiro, depois encerradas, com meta, total arrecadado, data de encerramento</li>
+<li><strong>Drill-down por campanha</strong>: lista de doações anonimizadas (valor + data)</li>
+<li>Read models projetados em base indexada para queries otimizadas</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copiado para área de transferência","clipboard.copy":"Copiar para área de transferência","search.result.more.one":"mais 1 nesta página","search.result.more.other":"# mais nesta página","search.result.none":"Nenhum documento encontrado","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Digite para iniciar a busca","search.result.term.missing":"Ausente","select.version":"Selecione a versão"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c2b142ea.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,8 @@
+services:
+  docs:
+    build: .
+    ports:
+      - "8002:8000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
