@@ -11,16 +11,22 @@ MVP da plataforma digital com 4 microsserviços .NET 10, RabbitMQ, Kubernetes (A
 ```
 docs/
 ├── index.md                              # Visão Geral
+├── contexto.md                           # Contexto do Projeto
 ├── modelagem/                            # Modelagem de Domínio
 │   ├── index.md
 │   ├── event-storming.md
 │   └── domain-storytelling.md
-├── arquitetura/                          # Arquitetura
+├── arquitetura/                          # Arquitetura (visão geral, diagrama, stack)
+│   └── index.md
+├── microsservicos/                       # → seção Microsserviços (nível superior na nav)
+│   ├── index.md                          # Index da seção
+│   ├── fiap-ong-esperanca-gateway-api.md
+│   ├── fiap-ong-esperanca-identity-api.md
+│   ├── fiap-ong-esperanca-campanhas-api.md
+│   └── fiap-ong-esperanca-worker.md
+├── decisoes-arquiteturais/               # → seção Decisões Arquiteturais (nível superior na nav)
 │   ├── index.md
-│   ├── microsservicos.md
-│   └── decisoes-arquiteturais/
-│       ├── index.md
-│       └── registros/                    # 10 ADRs individuais
+│   └── registros/                        # 10 ADRs individuais
 └── execucao/                             # Execução
     ├── index.md
     └── tarefas.md

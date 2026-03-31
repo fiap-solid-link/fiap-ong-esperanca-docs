@@ -1,0 +1,2419 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação da plataforma Conexão Solidária — Hackathon 9NETT FIAP | ONG Esperança Solidária">
+      
+      
+        <meta name="author" content="Equipe Hackathon 9NETT">
+      
+      
+      
+        <link rel="prev" href="../fiap-ong-esperanca-gateway-api/">
+      
+      
+        <link rel="next" href="../fiap-ong-esperanca-campanhas-api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.28">
+    
+    
+      
+        <title>identity-api - Conexão Solidária</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.6f2fbb28.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegação"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#identity-api" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Conexão Solidária" class="md-header__button md-logo" aria-label="Conexão Solidária" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegação">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Conexão Solidária
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              identity-api
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Pesquisar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Pesquisar">
+  <button type="button" class="md-search__button">
+    Pesquisar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contexto/" class="md-tabs__link">
+        
+  
+  Contexto do Projeto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modelagem/" class="md-tabs__link">
+          
+  
+  Modelagem de Domínio
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../arquitetura/" class="md-tabs__link">
+        
+  
+  Arquitetura
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Microsserviços
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../decisoes-arquiteturais/" class="md-tabs__link">
+          
+  
+  Decisões Arquiteturais
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../execucao/" class="md-tabs__link">
+          
+  
+  Execução
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Conexão Solidária" class="md-nav__button md-logo" aria-label="Conexão Solidária" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    Conexão Solidária
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contexto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexto do Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modelagem/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelagem de Domínio
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modelagem de Domínio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelagem/event-storming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Storming — Conexão Solidária
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modelagem/domain-storytelling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain Storytelling — Conexão Solidária
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arquitetura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsserviços
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Microsserviços
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiap-ong-esperanca-gateway-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gateway-api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    identity-api
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    identity-api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-de-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo de Dependências
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usuários
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infraestrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infraestrutura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxos-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxos Principais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxos Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registro-login-acesso-autenticado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registro + Login + Acesso Autenticado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refresh-token-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refresh Token Rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestao-de-roles-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestão de Roles (Admin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo de Domínio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo de Domínio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles-seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles (Seed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticação JWT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validações
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizar-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizar Perfil
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seed-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed Automático
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigos-de-erro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Códigos de Erro
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencias-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências Principais
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiap-ong-esperanca-campanhas-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    campanhas-api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fiap-ong-esperanca-worker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    worker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../decisoes-arquiteturais/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisões Arquiteturais
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Decisões Arquiteturais
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-01-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-01 — Stack Tecnológica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-02-microsservicos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-02 — Divisão de Microsserviços
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-03-arquitetura-interna/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-03 — Arquitetura Interna dos Serviços
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-04-persistencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-04 — Persistência de Dados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-05-mensageria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-05 — Mensageria e Comunicação Assíncrona
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-06-autenticacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-06 — Autenticação e Autorização Cross-Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-07-api-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-07 — API Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-08-observabilidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-08 — Observabilidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-09-infraestrutura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-09 — Infraestrutura e Deploy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisoes-arquiteturais/registros/adr-10-testes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-10 — Estratégia de Testes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../execucao/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Execução
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Execução
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../execucao/tarefas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tarefas de Execução — Conexão Solidária
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-de-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxo de Dependências
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usuários
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infraestrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infraestrutura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxos-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxos Principais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxos Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registro-login-acesso-autenticado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registro + Login + Acesso Autenticado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refresh-token-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refresh Token Rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestao-de-roles-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestão de Roles (Admin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modelo de Domínio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelo de Domínio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles-seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles (Seed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticação JWT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validações
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizar-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atualizar Perfil
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seed-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed Automático
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigos-de-erro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Códigos de Erro
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencias-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências Principais
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegação" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Microsserviços
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="identity-api">identity-api<a class="headerlink" href="#identity-api" title="Permanent link">&para;</a></h1>
+<p><strong>Repo:</strong> <a href="https://github.com/fiap-solid-link/fiap-ong-esperanca-identity-api"><code>fiap-ong-esperanca-identity-api</code></a><br />
+<strong>Tipo:</strong> ASP.NET Core Web API<br />
+<strong>Banco:</strong> PostgreSQL (<code>identity_db</code>)<br />
+<strong>Bounded Context:</strong> Identidade e Acesso</p>
+<h2 id="responsabilidades">Responsabilidades<a class="headerlink" href="#responsabilidades" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Registro de Doador (público)</li>
+<li>Registro/Seed de GestorONG</li>
+<li>Login (autenticação) → emissão de JWT (access 30min + refresh 7 dias)</li>
+<li>Renovação de tokens (refresh token rotation)</li>
+<li>Validação de token via shared key</li>
+<li>Gerenciamento de perfis/roles (RBAC): Admin, GestorONG, Doador</li>
+</ul>
+<h2 id="fluxo-de-dependencias">Fluxo de Dependências<a class="headerlink" href="#fluxo-de-dependencias" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    A[WebApi] --&gt; B[Application]
+    A --&gt; D[Infrastructure]
+    B --&gt; C[Domain]
+    D --&gt; B
+
+    style C fill:#e8f5e9,stroke:#2e7d32
+    style B fill:#e3f2fd,stroke:#1565c0
+    style D fill:#fff3e0,stroke:#e65100
+    style A fill:#fce4ec,stroke:#c62828</code></pre>
+<ul>
+<li><strong>Domain</strong> → zero dependências externas (apenas C# puro)</li>
+<li><strong>Application</strong> → referencia Domain; define interfaces (<code>IAppDbContext</code>, <code>IJwtService</code>, <code>IPasswordHasher</code>)</li>
+<li><strong>Infrastructure</strong> → implementa interfaces da Application e Domain</li>
+<li><strong>WebApi</strong> → orquestra tudo via Modules; controllers delegam ao MediatR</li>
+</ul>
+<h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">&para;</a></h2>
+<h3 id="autenticacao">Autenticação<a class="headerlink" href="#autenticacao" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Acesso</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/auth/registrar</code></td>
+<td>Público</td>
+<td>Registro de novo doador</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/auth/login</code></td>
+<td>Público</td>
+<td>Login → emissão de tokens</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/auth/refresh</code></td>
+<td>Público</td>
+<td>Renovação de tokens (refresh token rotation)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="usuarios">Usuários<a class="headerlink" href="#usuarios" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Acesso</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/auth/me</code></td>
+<td>Autenticado</td>
+<td>Perfil do usuário logado</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/api/usuarios/perfil</code></td>
+<td>Autenticado</td>
+<td>Atualizar nome e apelido</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/usuarios/{id}/conceder-gestor</code></td>
+<td>Admin</td>
+<td>Conceder role GestorONG</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/usuarios/{id}/revogar-gestor</code></td>
+<td>Admin</td>
+<td>Revogar role GestorONG</td>
+</tr>
+</tbody>
+</table>
+<h3 id="infraestrutura">Infraestrutura<a class="headerlink" href="#infraestrutura" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Rota</th>
+<th>Acesso</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/health</code></td>
+<td>Público</td>
+<td>Health check (PostgreSQL)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fluxos-principais">Fluxos Principais<a class="headerlink" href="#fluxos-principais" title="Permanent link">&para;</a></h2>
+<h3 id="registro-login-acesso-autenticado">Registro + Login + Acesso Autenticado<a class="headerlink" href="#registro-login-acesso-autenticado" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    actor U as Usuário
+    participant API as Identity API
+    participant DB as PostgreSQL
+
+    Note over U,DB: 1. Registro
+    U-&gt;&gt;API: POST /api/auth/registrar&lt;br/&gt;{ nome, email, senha }
+    API-&gt;&gt;API: Valida campos (FluentValidation)
+    API-&gt;&gt;DB: Verifica se email já existe
+    API-&gt;&gt;API: Hash da senha (BCrypt)
+    API-&gt;&gt;DB: Insere usuário + role Doador
+    API--&gt;&gt;U: 201 { id, nome, email }
+
+    Note over U,DB: 2. Login
+    U-&gt;&gt;API: POST /api/auth/login&lt;br/&gt;{ email, senha }
+    API-&gt;&gt;DB: Busca usuário por email
+    API-&gt;&gt;API: Verifica senha (BCrypt)
+    API-&gt;&gt;API: Gera accessToken (JWT HS256, 30min)
+    API-&gt;&gt;API: Gera refreshToken (64 bytes aleatórios)
+    API-&gt;&gt;DB: Persiste refreshToken (7 dias)
+    API--&gt;&gt;U: 200 { accessToken, refreshToken, expiraEm }
+
+    Note over U,DB: 3. Acesso autenticado
+    U-&gt;&gt;API: GET /api/auth/me&lt;br/&gt;Authorization: Bearer {accessToken}
+    API-&gt;&gt;API: Valida JWT (assinatura, issuer, audience, expiração)
+    API-&gt;&gt;DB: Busca usuário por ID do claim "sub"
+    API--&gt;&gt;U: 200 { id, nome, email, apelido, roles }</code></pre>
+<h3 id="refresh-token-rotation">Refresh Token Rotation<a class="headerlink" href="#refresh-token-rotation" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    actor U as Usuário
+    participant API as Identity API
+    participant DB as PostgreSQL
+
+    Note over U,DB: Access token expirou (30min)
+    U-&gt;&gt;API: POST /api/auth/refresh&lt;br/&gt;{ refreshToken: "abc123..." }
+    API-&gt;&gt;DB: Busca refreshToken "abc123..."
+    API-&gt;&gt;API: Valida: existe? não expirou? não revogado?
+
+    alt Token inválido ou expirado
+        API--&gt;&gt;U: 401 { erro: "Refresh token inválido ou expirado." }
+    else Token válido
+        API-&gt;&gt;DB: Revoga token antigo (RevogadoEm = now)
+        API-&gt;&gt;API: Gera novo accessToken (JWT)
+        API-&gt;&gt;API: Gera novo refreshToken
+        API-&gt;&gt;DB: Persiste novo refreshToken
+        API--&gt;&gt;U: 200 { accessToken, refreshToken, expiraEm }
+    end
+
+    Note over U,DB: Cada refresh token só pode ser usado uma vez</code></pre>
+<h3 id="gestao-de-roles-admin">Gestão de Roles (Admin)<a class="headerlink" href="#gestao-de-roles-admin" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    actor A as Admin
+    participant API as Identity API
+    participant DB as PostgreSQL
+
+    Note over A,DB: Conceder GestorONG
+    A-&gt;&gt;API: POST /api/usuarios/{id}/conceder-gestor&lt;br/&gt;Authorization: Bearer {adminToken}
+    API-&gt;&gt;API: Valida role "Admin" no JWT
+    API-&gt;&gt;DB: Busca usuário por ID
+    API-&gt;&gt;API: Verifica se já possui GestorONG
+    API-&gt;&gt;DB: Adiciona role GestorONG ao usuário
+    API--&gt;&gt;A: 200 { usuarioId, mensagem }
+
+    Note over A,DB: Revogar GestorONG
+    A-&gt;&gt;API: DELETE /api/usuarios/{id}/revogar-gestor&lt;br/&gt;Authorization: Bearer {adminToken}
+    API-&gt;&gt;DB: Busca usuário por ID
+    API-&gt;&gt;API: Verifica se possui GestorONG
+    API-&gt;&gt;DB: Remove role GestorONG do usuário
+    API--&gt;&gt;A: 200 { usuarioId, mensagem }</code></pre>
+<h2 id="modelo-de-dominio">Modelo de Domínio<a class="headerlink" href="#modelo-de-dominio" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>erDiagram
+    USUARIOS {
+        uuid Id PK
+        varchar(150) Nome
+        varchar(256) Email UK
+        varchar(256) SenhaHash
+        varchar(100) Apelido
+        timestamp CriadoEm
+        timestamp AtualizadoEm
+    }
+
+    PERFIS {
+        uuid Id PK
+        int Tipo UK
+        varchar(50) Nome
+    }
+
+    USUARIO_ROLES {
+        uuid UsuariosId FK
+        uuid RolesId FK
+    }
+
+    REFRESH_TOKENS {
+        uuid Id PK
+        varchar(512) Token UK
+        uuid UsuarioId FK
+        timestamp CriadoEm
+        timestamp ExpiraEm
+        timestamp RevogadoEm
+    }
+
+    USUARIOS ||--o{ REFRESH_TOKENS : "possui"
+    USUARIOS }o--o{ PERFIS : "pertence a"</code></pre>
+<h3 id="roles-seed">Roles (Seed)<a class="headerlink" href="#roles-seed" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Nome</th>
+<th>Permissões</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Admin</td>
+<td>Gerenciar roles de usuários</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GestorONG</td>
+<td>Gerenciar campanhas (em outro microsserviço)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Doador</td>
+<td>Realizar doações e atualizar perfil</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autenticacao-jwt">Autenticação JWT<a class="headerlink" href="#autenticacao-jwt" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Algoritmo</td>
+<td>HMAC-SHA256</td>
+</tr>
+<tr>
+<td>Access Token</td>
+<td>30 minutos</td>
+</tr>
+<tr>
+<td>Refresh Token</td>
+<td>7 dias (uso único)</td>
+</tr>
+<tr>
+<td>Issuer</td>
+<td><code>esperanca-identity-api</code></td>
+</tr>
+<tr>
+<td>Audience</td>
+<td><code>esperanca-platform</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Claims do Access Token:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sub</code></td>
+<td>ID do usuário (GUID)</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Email do usuário</td>
+</tr>
+<tr>
+<td><code>jti</code></td>
+<td>ID único do token</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>Roles do usuário (pode ser múltiplo)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Nota sobre Auth</p>
+<p>Os demais microsserviços (<code>campanhas-api</code>, etc.) validam o JWT usando a mesma chave simétrica (shared secret via ConfigMap/Secret do K8s). Não realizam chamadas ao identity-api em runtime.</p>
+</div>
+<h2 id="validacoes">Validações<a class="headerlink" href="#validacoes" title="Permanent link">&para;</a></h2>
+<p>Todas as mensagens de erro são internacionalizadas (pt-BR e en) via <code>IAppLocalizer</code> + embedded JSON resources.</p>
+<h3 id="registro">Registro<a class="headerlink" href="#registro" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Regra</th>
+<th>Código</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nome</td>
+<td>Obrigatório</td>
+<td><code>Identity:100</code></td>
+</tr>
+<tr>
+<td>Nome</td>
+<td>Máximo 150 caracteres</td>
+<td><code>Identity:101</code></td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Obrigatório</td>
+<td><code>Identity:102</code></td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Formato válido</td>
+<td><code>Identity:103</code></td>
+</tr>
+<tr>
+<td>Senha</td>
+<td>Obrigatória</td>
+<td><code>Identity:104</code></td>
+</tr>
+<tr>
+<td>Senha</td>
+<td>Mínimo 8 caracteres</td>
+<td><code>Identity:105</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="login">Login<a class="headerlink" href="#login" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Regra</th>
+<th>Código</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email</td>
+<td>Obrigatório</td>
+<td><code>Identity:102</code></td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Formato válido</td>
+<td><code>Identity:103</code></td>
+</tr>
+<tr>
+<td>Senha</td>
+<td>Obrigatória</td>
+<td><code>Identity:104</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="atualizar-perfil">Atualizar Perfil<a class="headerlink" href="#atualizar-perfil" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Regra</th>
+<th>Código</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nome</td>
+<td>Obrigatório</td>
+<td><code>Identity:100</code></td>
+</tr>
+<tr>
+<td>Nome</td>
+<td>Máximo 150 caracteres</td>
+<td><code>Identity:101</code></td>
+</tr>
+<tr>
+<td>Apelido</td>
+<td>Máximo 100 caracteres</td>
+<td><code>Identity:106</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="seed-automatico">Seed Automático<a class="headerlink" href="#seed-automatico" title="Permanent link">&para;</a></h2>
+<p>Na inicialização, <code>DatabaseSeed.SeedAdminAsync()</code> executa automaticamente:</p>
+<ol>
+<li>Aplica migrations pendentes</li>
+<li>Verifica se o Admin já existe</li>
+<li>Se não existir, cria:<ul>
+<li><strong>Email:</strong> <code>admin@esperanca.org</code></li>
+<li><strong>Senha:</strong> <code>Admin@123</code></li>
+<li><strong>Role:</strong> Admin</li>
+</ul>
+</li>
+</ol>
+<h2 id="codigos-de-erro">Códigos de Erro<a class="headerlink" href="#codigos-de-erro" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Constante</th>
+<th>Mensagem (pt-BR)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Identity:001</code></td>
+<td>EmailOuSenhaInvalidos</td>
+<td>Email ou senha inválidos.</td>
+</tr>
+<tr>
+<td><code>Identity:002</code></td>
+<td>TokenInvalido</td>
+<td>Token inválido.</td>
+</tr>
+<tr>
+<td><code>Identity:003</code></td>
+<td>RefreshTokenInvalidoOuExpirado</td>
+<td>Refresh token inválido ou expirado.</td>
+</tr>
+<tr>
+<td><code>Identity:004</code></td>
+<td>EmailJaCadastrado</td>
+<td>Email já cadastrado.</td>
+</tr>
+<tr>
+<td><code>Identity:005</code></td>
+<td>UsuarioNaoEncontrado</td>
+<td>Usuário não encontrado.</td>
+</tr>
+<tr>
+<td><code>Identity:006</code></td>
+<td>UsuarioJaPossuiGestor</td>
+<td>Usuário já possui o perfil GestorONG.</td>
+</tr>
+<tr>
+<td><code>Identity:007</code></td>
+<td>UsuarioNaoPossuiGestor</td>
+<td>Usuário não possui o perfil GestorONG.</td>
+</tr>
+<tr>
+<td><code>Identity:008</code></td>
+<td>RoleGestorNaoEncontrada</td>
+<td>Role GestorONG não encontrada.</td>
+</tr>
+<tr>
+<td><code>Identity:900</code></td>
+<td>ErroDeValidacao</td>
+<td>Erro de validação.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dependencias-principais">Dependências Principais<a class="headerlink" href="#dependencias-principais" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.NET 10 · ASP.NET Core · EF Core + Npgsql
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>MediatR · FluentValidation · BCrypt.Net-Next
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Microsoft.AspNetCore.Authentication.JwtBearer
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Serilog · Swashbuckle
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copiado para área de transferência","clipboard.copy":"Copiar para área de transferência","search.result.more.one":"mais 1 nesta página","search.result.more.other":"# mais nesta página","search.result.none":"Nenhum documento encontrado","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Digite para iniciar a busca","search.result.term.missing":"Ausente","select.version":"Selecione a versão"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c2b142ea.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,4 +1,4 @@
-# Event Storming — Conexão Solidária
+# Event Storming
 
 Modelagem de domínio da plataforma **Conexão Solidária** utilizando **Event Storming** (Alberto Brandolini), do Big Picture até o Design Level.
 

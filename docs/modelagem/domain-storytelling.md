@@ -1,4 +1,4 @@
-# Domain Storytelling — Conexão Solidária
+# Domain Storytelling
 
 !!! warning "Em construção"
     Esta seção está planejada para uma próxima iteração da documentação.

@@ -4,7 +4,7 @@ Visão macro da plataforma **Conexão Solidária** — 4 microsserviços .NET 10
 
 ---
 
-## Seções
+## Explore também
 
 <div class="grid cards" markdown>
 
@@ -14,7 +14,7 @@ Visão macro da plataforma **Conexão Solidária** — 4 microsserviços .NET 10
 
     Detalhamento dos 4 microsserviços: bounded contexts, responsabilidades, endpoints e estrutura de pastas.
 
-    [:octicons-arrow-right-24: Acessar](microsservicos.md)
+    [:octicons-arrow-right-24: Acessar](../microsservicos/index.md)
 
 -   :material-file-document-edit:{ .lg .middle } **Decisões Arquiteturais**
 
@@ -22,7 +22,7 @@ Visão macro da plataforma **Conexão Solidária** — 4 microsserviços .NET 10
 
     10 ADRs documentando cada escolha técnica: stack, divisão de serviços, persistência, mensageria, auth, gateway, observabilidade, infra e testes.
 
-    [:octicons-arrow-right-24: Acessar](decisoes-arquiteturais/index.md)
+    [:octicons-arrow-right-24: Acessar](../decisoes-arquiteturais/index.md)
 
 </div>
 
@@ -65,10 +65,10 @@ graph TD
     MQ -->|Consume DoacaoProcessada| Campanhas
     Worker --> Mongo
 
-    click Gateway "microsservicos/fiap-ong-esperanca-gateway-api/" "Ver detalhes do Gateway"
-    click Identity "microsservicos/fiap-ong-esperanca-identity-api/" "Ver detalhes do Identity API"
-    click Campanhas "microsservicos/fiap-ong-esperanca-campanhas-api/" "Ver detalhes do Campanhas API"
-    click Worker "microsservicos/fiap-ong-esperanca-worker/" "Ver detalhes do Worker"
+    click Gateway "../microsservicos/fiap-ong-esperanca-gateway-api/" "Ver detalhes do Gateway"
+    click Identity "../microsservicos/fiap-ong-esperanca-identity-api/" "Ver detalhes do Identity API"
+    click Campanhas "../microsservicos/fiap-ong-esperanca-campanhas-api/" "Ver detalhes do Campanhas API"
+    click Worker "../microsservicos/fiap-ong-esperanca-worker/" "Ver detalhes do Worker"
 ```
 
 ---
