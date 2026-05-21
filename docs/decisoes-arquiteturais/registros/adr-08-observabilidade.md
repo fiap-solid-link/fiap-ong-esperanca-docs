@@ -12,15 +12,15 @@ Uma arquitetura de microsserviços com comunicação assíncrona exige visibilid
 
 Adotar uma estratégia de observabilidade em **3 pilares**:
 
-### Logging — Serilog + Application Insights
+### Logging — Serilog
 
 | Aspecto | Decisão |
 |---------|---------|
-| **Biblioteca** | Serilog com sinks para Console (dev) e Application Insights (produção) |
+| **Biblioteca** | Serilog com sink para Console |
 | **Formato** | Structured logging (JSON) com correlation ID propagado entre serviços |
 | **Níveis** | Information (fluxo normal), Warning (retries), Error (falhas), Fatal (DLQ) |
 
-### Métricas — Application Insights + Grafana
+### Métricas — Grafana
 
 | Métrica | Serviço | Descrição |
 |---------|---------|-----------|
@@ -36,7 +36,6 @@ Adotar uma estratégia de observabilidade em **3 pilares**:
 | Aspecto | Decisão |
 |---------|---------|
 | **SDK** | OpenTelemetry .NET SDK |
-| **Exportador** | Application Insights (via Azure Monitor Exporter) |
 | **Propagação** | W3C Trace Context entre HTTP e mensageria |
 
 ### Health Checks
@@ -50,12 +49,12 @@ Adotar uma estratégia de observabilidade em **3 pilares**:
 
 ## Justificativa
 
-1. **Serilog** é o padrão de facto para structured logging em .NET — extensível, performático, integra nativamente com Application Insights
-2. **Application Insights** oferece APM completo (traces, métricas, logs) com mínima configuração para apps .NET no Azure
-3. **Grafana** complementa com dashboards customizados, especialmente para métricas de RabbitMQ
-4. **Health checks nativos** do ASP.NET Core integram com Kubernetes readiness/liveness probes
+1. **Serilog** é o padrão de facto para structured logging em .NET — extensível, performático, sem dependência de cloud
+2. **Grafana** oferece dashboards customizados locais, especialmente para métricas de RabbitMQ, sem custo adicional
+3. **OpenTelemetry** garante portabilidade futura do tracing para qualquer exportador
+4. **Health checks nativos** do ASP.NET Core permitem monitorar a saúde dos serviços localmente
 
 ## Consequências
 
-- **Positivas:** visibilidade completa da plataforma; alertas proativos (DLQ, error rate); debugging facilitado com correlation IDs
-- **Negativas:** Application Insights tem custo proporcional ao volume de telemetria; Grafana requer instância separada
+- **Positivas:** visibilidade completa da plataforma sem dependência de cloud; alertas proativos (DLQ, error rate); debugging facilitado com correlation IDs
+- **Negativas:** Grafana requer instância separada no Docker Compose; sem APM gerenciado fora do ambiente local

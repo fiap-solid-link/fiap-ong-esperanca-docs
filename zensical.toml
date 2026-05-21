@@ -12,7 +12,6 @@ nav = [
   { "Modelagem de Domínio" = [
     "modelagem/index.md",
     "modelagem/event-storming.md",
-    "modelagem/domain-storytelling.md",
   ]},
   { "Arquitetura" = "arquitetura/index.md" },
   { "Microsserviços" = [

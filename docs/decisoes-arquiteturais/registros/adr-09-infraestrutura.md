@@ -10,9 +10,9 @@ O hackathon exige demonstração de deploy em Kubernetes. Para desenvolvimento l
 
 ## Decisão
 
-Adotar **duas estratégias de deploy**:
+Adotar **Docker Compose** como único ambiente de execução (desenvolvimento e testes locais) e **Docker Hub** como registro de imagens.
 
-### Desenvolvimento Local — Docker Compose
+### Ambiente Local — Docker Compose
 
 ```yaml
 services:
@@ -29,17 +29,9 @@ services:
 - RabbitMQ Management UI acessível em `localhost:15672`
 - Gateway acessível em `localhost:5000`
 
-### Produção — Kubernetes (AKS)
+### Publicação de Imagens — Docker Hub
 
-| Componente | Recurso K8s | Réplicas |
-|------------|-------------|----------|
-| esperanca-identity-api | Deployment + Service (ClusterIP) | 2 |
-| esperanca-campanhas-api | Deployment + Service (ClusterIP) | 2 |
-| esperanca-worker | Deployment | 1-3 (HPA baseado em queue depth) |
-| esperanca-gateway-api | Deployment + Service (LoadBalancer) | 2 |
-| PostgreSQL | StatefulSet ou Azure Database for PostgreSQL | 1 |
-| MongoDB | StatefulSet ou Azure Cosmos DB (API MongoDB) | 1 |
-| RabbitMQ | StatefulSet (com PVC) | 1 |
+As imagens são publicadas no Docker Hub sob a organização do projeto, permitindo que qualquer membro da equipe execute o ambiente com `docker compose pull && docker compose up`.
 
 ### CI/CD — GitHub Actions
 
@@ -49,29 +41,27 @@ flowchart LR
     GA["GitHub Actions"]
     BUILD["Build + Test\ndotnet test"]
     DOCKER["Docker Build\nmulti-stage"]
-    ACR["Push\nAzure Container\nRegistry"]
-    AKS["Deploy\nAKS\nkubectl apply / Helm"]
+    HUB["Push\nDocker Hub"]
 
     PUSH --> GA
     GA --> BUILD
     BUILD --> DOCKER
-    DOCKER --> ACR
-    ACR --> AKS
+    DOCKER --> HUB
 ```
 
 | Pipeline | Trigger | Ações |
 |----------|---------|-------|
 | **CI** | Push/PR em qualquer branch | Restore, Build, Test, Lint |
-| **CD** | Merge na `main` | CI + Docker Build + Push ACR + Deploy AKS |
+| **CD** | Merge na `main` | CI + Docker Build + Push Docker Hub |
 
 ## Justificativa
 
-1. **Docker Compose para dev:** paridade máxima com produção; zero instalação local de PostgreSQL/MongoDB/RabbitMQ; onboarding em `docker compose up`
-2. **AKS para produção:** requisito do hackathon; scaling automático do Worker via HPA; health checks integrados com readiness/liveness probes
-3. **GitHub Actions:** CI/CD nativo do GitHub; sem custo adicional para repos públicos; marketplace com actions para ACR e AKS
+1. **Docker Compose para dev/testes:** paridade entre ambientes; zero instalação local de PostgreSQL/MongoDB/RabbitMQ; onboarding em `docker compose up`
+2. **Docker Hub:** gratuito para repositórios públicos; sem dependência de cloud provider; integração direta com GitHub Actions
+3. **GitHub Actions:** CI/CD nativo do GitHub; sem custo adicional para repos públicos
 4. **Um repo por serviço:** permite CI/CD independente — deploy de um serviço não afeta os outros
 
 ## Consequências
 
-- **Positivas:** ambiente local idêntico ao produtivo; deploy automatizado; scaling independente por serviço
-- **Negativas:** 4 pipelines de CI/CD para manter; custo de AKS + ACR na Azure (mitigado com free tier / student credits)
+- **Positivas:** ambiente simples e reproduzível; sem custo de infraestrutura cloud; onboarding rápido
+- **Negativas:** 4 pipelines de CI/CD para manter; sem ambiente de produção dedicado — adequado ao escopo de hackathon

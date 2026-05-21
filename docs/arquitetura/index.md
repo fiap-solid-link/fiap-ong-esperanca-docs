@@ -106,19 +106,18 @@ graph TD
 
 | Tecnologia | Propósito |
 |------------|-----------|
-| Serilog | Structured logging (Console + Application Insights) |
-| Application Insights | APM — traces, métricas, logs |
+| Serilog | Structured logging (Console) |
+| OpenTelemetry | Tracing distribuído entre serviços |
 | Grafana | Dashboards customizados (RabbitMQ + métricas) |
-| ASP.NET Core Health Checks | Readiness/liveness probes para K8s |
+| ASP.NET Core Health Checks | Monitoramento de saúde dos serviços |
 
 ### Infraestrutura
 
 | Tecnologia | Uso |
 |------------|-----|
-| Docker + Docker Compose | Ambiente de desenvolvimento local |
-| Kubernetes (AKS) | Orquestração em produção |
-| Azure Container Registry (ACR) | Registro de imagens Docker |
-| GitHub Actions | CI/CD — build, test, push e deploy |
+| Docker + Docker Compose | Ambiente de desenvolvimento e testes locais |
+| Docker Hub | Registro e publicação de imagens Docker |
+| GitHub Actions | CI/CD — build, test e push de imagens |
 
 ### Testes
 

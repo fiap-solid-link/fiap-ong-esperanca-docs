@@ -144,7 +144,7 @@ Implementar o fluxo de entrada de doações: endpoint de intenção de doação,
 - [ ] **Application Layer** — `EnviarIntencaoDoacao`, interface `IDoacaoPublisher`
 - [ ] **Infrastructure — Publisher** — `RabbitMqDoacaoPublisher` publicando na exchange `esperanca.doacoes`
 - [ ] **Infrastructure — Consumer** — `DoacaoProcessadaConsumerService` (BackgroundService)
-- [ ] **WebApi** — `DoacaoController` — `POST /api/doacoes` [Authorize(Roles = "Doador")]
+- [ ] **WebApi** — `DoacaoController` — `POST /api/doacoes` `[Authorize(Roles = "Doador")]`
 - [ ] **Testes de contrato** (Dev 2 + Dev 3): compatibilidade bidirecional de `DoacaoRecebidaEvent` e `DoacaoProcessadaEvent`
 
 ### Acceptance Criteria

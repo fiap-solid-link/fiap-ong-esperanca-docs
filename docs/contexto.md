@@ -27,8 +27,8 @@ O MVP entrega:
 | **Bancos de dados** | PostgreSQL (identidade e campanhas) + MongoDB (doações e read models) |
 | **API Gateway** | YARP (Yet Another Reverse Proxy) |
 | **Observabilidade** | Application Insights + Grafana + Serilog |
-| **Infra** | Docker Compose (dev) + Kubernetes AKS (produção) |
-| **CI/CD** | GitHub Actions → Azure Container Registry → AKS |
+| **Infra** | Docker Compose (dev e testes locais) |
+| **CI/CD** | GitHub Actions → Docker Hub |
 | **Testes** | xUnit + Testcontainers |
 
 ---
@@ -57,5 +57,5 @@ O MVP entrega:
 ---
 
 !!! note "Documentação técnica detalhada"
-    Para decisões arquiteturais, consulte os 10 ADRs em [Arquitetura → Decisões Arquiteturais](arquitetura/decisoes-arquiteturais/index.md).
+    Para decisões arquiteturais, consulte os 10 ADRs em [Arquitetura → Decisões Arquiteturais](decisoes-arquiteturais/index.md).
     Para a modelagem de domínio completa (Event Storming), acesse [Modelagem → Event Storming](modelagem/event-storming.md).

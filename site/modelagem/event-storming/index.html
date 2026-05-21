@@ -16,25 +16,25 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../domain-storytelling/">
+        <link rel="next" href="../../arquitetura/">
       
       
         
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.28">
+      <meta name="generator" content="zensical-0.0.43">
     
     
       
-        <title>Event Storming — Conexão Solidária - Conexão Solidária</title>
+        <title>Event Storming - Conexão Solidária</title>
       
     
     
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.6f2fbb28.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.fba56155.min.css">
       
         
           
@@ -53,12 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#event-storming-conexao-solidaria" class="md-skip">
+        <a href="#event-storming" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Event Storming — Conexão Solidária
+              Event Storming
             
           </span>
         </div>
@@ -221,6 +221,17 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
@@ -256,6 +267,23 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../microsservicos/" class="md-tabs__link">
@@ -275,6 +303,35 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../decisoes-arquiteturais/" class="md-tabs__link">
@@ -293,6 +350,17 @@
   
   
   
+    
+      
+      
+        
+          
+        
+      
+        
+      
+    
+    
     
     
       <li class="md-tabs__item">
@@ -360,8 +428,7 @@
   <span class="md-ellipsis">
     
   
-    Home
-  
+  Home
 
     
   </span>
@@ -387,8 +454,7 @@
   <span class="md-ellipsis">
     
   
-    Contexto do Projeto
-  
+  Contexto do Projeto
 
     
   </span>
@@ -413,8 +479,6 @@
       
         
           
-        
-      
         
       
         
@@ -446,8 +510,7 @@
   <span class="md-ellipsis">
     
   
-    Modelagem de Domínio
-  
+  Modelagem de Domínio
 
     
   </span>
@@ -468,8 +531,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Modelagem de Domínio
-  
+  Modelagem de Domínio
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -486,7 +548,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
       
         
@@ -499,8 +561,7 @@
   <span class="md-ellipsis">
     
   
-    Event Storming — Conexão Solidária
-  
+  Event Storming
 
     
   </span>
@@ -517,8 +578,7 @@
   <span class="md-ellipsis">
     
   
-    Event Storming — Conexão Solidária
-  
+  Event Storming
 
     
   </span>
@@ -546,9 +606,9 @@
         <li class="md-nav__item">
   <a href="#legenda-de-notacao" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Legenda de Notação
-      
+      </span>
     </span>
   </a>
   
@@ -557,9 +617,9 @@
         <li class="md-nav__item">
   <a href="#big-picture" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Big Picture
-      
+      </span>
     </span>
   </a>
   
@@ -569,9 +629,9 @@
           <li class="md-nav__item">
   <a href="#fase-1-domain-events" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 1 — Domain Events
-      
+      </span>
     </span>
   </a>
   
@@ -581,9 +641,9 @@
           <li class="md-nav__item">
   <a href="#swimlane-identidade" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlane: Identidade
-      
+      </span>
     </span>
   </a>
   
@@ -592,9 +652,9 @@
           <li class="md-nav__item">
   <a href="#swimlane-campanhas" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlane: Campanhas
-      
+      </span>
     </span>
   </a>
   
@@ -603,9 +663,9 @@
           <li class="md-nav__item">
   <a href="#swimlane-doacoes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlane: Doações
-      
+      </span>
     </span>
   </a>
   
@@ -614,9 +674,9 @@
           <li class="md-nav__item">
   <a href="#swimlane-transparencia" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlane: Transparência
-      
+      </span>
     </span>
   </a>
   
@@ -630,9 +690,9 @@
           <li class="md-nav__item">
   <a href="#fase-2-hot-spots" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 2 — Hot Spots
-      
+      </span>
     </span>
   </a>
   
@@ -641,9 +701,9 @@
           <li class="md-nav__item">
   <a href="#fase-3-eventos-pivotais-e-swimlanes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 3 — Eventos Pivotais e Swimlanes
-      
+      </span>
     </span>
   </a>
   
@@ -653,9 +713,9 @@
           <li class="md-nav__item">
   <a href="#eventos-pivotais" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Eventos Pivotais
-      
+      </span>
     </span>
   </a>
   
@@ -664,9 +724,9 @@
           <li class="md-nav__item">
   <a href="#swimlanes-bounded-contexts" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlanes (Bounded Contexts)
-      
+      </span>
     </span>
   </a>
   
@@ -675,9 +735,9 @@
           <li class="md-nav__item">
   <a href="#fluxo-temporal-principal" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fluxo Temporal Principal
-      
+      </span>
     </span>
   </a>
   
@@ -696,9 +756,9 @@
         <li class="md-nav__item">
   <a href="#design-level" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Design Level
-      
+      </span>
     </span>
   </a>
   
@@ -708,9 +768,9 @@
           <li class="md-nav__item">
   <a href="#fase-4-comandos-atores-e-politicas" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 4 — Comandos, Atores e Políticas
-      
+      </span>
     </span>
   </a>
   
@@ -720,9 +780,9 @@
           <li class="md-nav__item">
   <a href="#identidade" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🏷️ Identidade
-      
+      </span>
     </span>
   </a>
   
@@ -731,9 +791,9 @@
           <li class="md-nav__item">
   <a href="#campanhas" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         📋 Campanhas
-      
+      </span>
     </span>
   </a>
   
@@ -742,9 +802,9 @@
           <li class="md-nav__item">
   <a href="#doacoes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         💳 Doações
-      
+      </span>
     </span>
   </a>
   
@@ -753,9 +813,9 @@
           <li class="md-nav__item">
   <a href="#transparencia-consultas-somente-leitura" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         👁️ Transparência — Consultas (Somente Leitura)
-      
+      </span>
     </span>
   </a>
   
@@ -769,9 +829,9 @@
           <li class="md-nav__item">
   <a href="#fase-5-read-models-e-agregados" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 5 — Read Models e Agregados
-      
+      </span>
     </span>
   </a>
   
@@ -781,9 +841,9 @@
           <li class="md-nav__item">
   <a href="#read-models" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🟢 Read Models
-      
+      </span>
     </span>
   </a>
   
@@ -792,9 +852,9 @@
           <li class="md-nav__item">
   <a href="#agregado-usuario" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🟡 Agregado: Usuario
-      
+      </span>
     </span>
   </a>
   
@@ -803,9 +863,9 @@
           <li class="md-nav__item">
   <a href="#agregado-campanha" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🟡 Agregado: Campanha
-      
+      </span>
     </span>
   </a>
   
@@ -814,9 +874,9 @@
           <li class="md-nav__item">
   <a href="#agregado-doacao" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🟡 Agregado: Doacao
-      
+      </span>
     </span>
   </a>
   
@@ -835,9 +895,9 @@
         <li class="md-nav__item">
   <a href="#diagrama-de-bounded-contexts" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Diagrama de Bounded Contexts
-      
+      </span>
     </span>
   </a>
   
@@ -846,9 +906,9 @@
         <li class="md-nav__item">
   <a href="#decisoes-de-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Decisões de Domínio
-      
+      </span>
     </span>
   </a>
   
@@ -858,9 +918,9 @@
           <li class="md-nav__item">
   <a href="#d1-identidade-e-perfis" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D1 — Identidade e Perfis
-      
+      </span>
     </span>
   </a>
   
@@ -869,9 +929,9 @@
           <li class="md-nav__item">
   <a href="#d2-campanhas-ciclo-de-vida" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D2 — Campanhas: Ciclo de Vida
-      
+      </span>
     </span>
   </a>
   
@@ -880,9 +940,9 @@
           <li class="md-nav__item">
   <a href="#d3-campanhas-modo-de-encerramento" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D3 — Campanhas: Modo de Encerramento
-      
+      </span>
     </span>
   </a>
   
@@ -891,9 +951,9 @@
           <li class="md-nav__item">
   <a href="#d4-doacoes-fluxo-completo" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D4 — Doações: Fluxo Completo
-      
+      </span>
     </span>
   </a>
   
@@ -902,9 +962,9 @@
           <li class="md-nav__item">
   <a href="#d5-doacoes-race-condition" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D5 — Doações: Race Condition
-      
+      </span>
     </span>
   </a>
   
@@ -913,9 +973,9 @@
           <li class="md-nav__item">
   <a href="#d6-doacoes-falhas-no-worker" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D6 — Doações: Falhas no Worker
-      
+      </span>
     </span>
   </a>
   
@@ -924,9 +984,9 @@
           <li class="md-nav__item">
   <a href="#d7-transparencia-painel-publico" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D7 — Transparência: Painel Público
-      
+      </span>
     </span>
   </a>
   
@@ -941,34 +1001,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../domain-storytelling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Domain Storytelling — Conexão Solidária
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -995,8 +1027,7 @@
   <span class="md-ellipsis">
     
   
-    Arquitetura
-  
+  Arquitetura
 
     
   </span>
@@ -1053,8 +1084,7 @@
   <span class="md-ellipsis">
     
   
-    Microsserviços
-  
+  Microsserviços
 
     
   </span>
@@ -1075,8 +1105,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Microsserviços
-  
+  Microsserviços
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1097,8 +1126,7 @@
   <span class="md-ellipsis">
     
   
-    gateway-api
-  
+  gateway-api
 
     
   </span>
@@ -1125,8 +1153,7 @@
   <span class="md-ellipsis">
     
   
-    identity-api
-  
+  identity-api
 
     
   </span>
@@ -1153,8 +1180,7 @@
   <span class="md-ellipsis">
     
   
-    campanhas-api
-  
+  campanhas-api
 
     
   </span>
@@ -1181,8 +1207,7 @@
   <span class="md-ellipsis">
     
   
-    worker
-  
+  worker
 
     
   </span>
@@ -1259,8 +1284,7 @@
   <span class="md-ellipsis">
     
   
-    Decisões Arquiteturais
-  
+  Decisões Arquiteturais
 
     
   </span>
@@ -1281,8 +1305,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Decisões Arquiteturais
-  
+  Decisões Arquiteturais
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1303,8 +1326,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-01 — Stack Tecnológica
-  
+  ADR-01 — Stack Tecnológica
 
     
   </span>
@@ -1331,8 +1353,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-02 — Divisão de Microsserviços
-  
+  ADR-02 — Divisão de Microsserviços
 
     
   </span>
@@ -1359,8 +1380,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-03 — Arquitetura Interna dos Serviços
-  
+  ADR-03 — Arquitetura Interna dos Serviços
 
     
   </span>
@@ -1387,8 +1407,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-04 — Persistência de Dados
-  
+  ADR-04 — Persistência de Dados
 
     
   </span>
@@ -1415,8 +1434,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-05 — Mensageria e Comunicação Assíncrona
-  
+  ADR-05 — Mensageria e Comunicação Assíncrona
 
     
   </span>
@@ -1443,8 +1461,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-06 — Autenticação e Autorização Cross-Service
-  
+  ADR-06 — Autenticação e Autorização Cross-Service
 
     
   </span>
@@ -1471,8 +1488,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-07 — API Gateway
-  
+  ADR-07 — API Gateway
 
     
   </span>
@@ -1499,8 +1515,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-08 — Observabilidade
-  
+  ADR-08 — Observabilidade
 
     
   </span>
@@ -1527,8 +1542,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-09 — Infraestrutura e Deploy
-  
+  ADR-09 — Infraestrutura e Deploy
 
     
   </span>
@@ -1555,8 +1569,7 @@
   <span class="md-ellipsis">
     
   
-    ADR-10 — Estratégia de Testes
-  
+  ADR-10 — Estratégia de Testes
 
     
   </span>
@@ -1615,8 +1628,7 @@
   <span class="md-ellipsis">
     
   
-    Execução
-  
+  Execução
 
     
   </span>
@@ -1637,8 +1649,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Execução
-  
+  Execução
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1659,8 +1670,7 @@
   <span class="md-ellipsis">
     
   
-    Tarefas de Execução — Conexão Solidária
-  
+  Tarefas de Execução — Conexão Solidária
 
     
   </span>
@@ -1690,6 +1700,19 @@
               
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
                   <div class="md-sidebar__inner">
                     
 
@@ -1710,9 +1733,9 @@
         <li class="md-nav__item">
   <a href="#legenda-de-notacao" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Legenda de Notação
-      
+      </span>
     </span>
   </a>
   
@@ -1721,9 +1744,9 @@
         <li class="md-nav__item">
   <a href="#big-picture" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Big Picture
-      
+      </span>
     </span>
   </a>
   
@@ -1733,9 +1756,9 @@
           <li class="md-nav__item">
   <a href="#fase-1-domain-events" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 1 — Domain Events
-      
+      </span>
     </span>
   </a>
   
@@ -1745,9 +1768,9 @@
           <li class="md-nav__item">
   <a href="#swimlane-identidade" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlane: Identidade
-      
+      </span>
     </span>
   </a>
   
@@ -1756,9 +1779,9 @@
           <li class="md-nav__item">
   <a href="#swimlane-campanhas" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlane: Campanhas
-      
+      </span>
     </span>
   </a>
   
@@ -1767,9 +1790,9 @@
           <li class="md-nav__item">
   <a href="#swimlane-doacoes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlane: Doações
-      
+      </span>
     </span>
   </a>
   
@@ -1778,9 +1801,9 @@
           <li class="md-nav__item">
   <a href="#swimlane-transparencia" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlane: Transparência
-      
+      </span>
     </span>
   </a>
   
@@ -1794,9 +1817,9 @@
           <li class="md-nav__item">
   <a href="#fase-2-hot-spots" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 2 — Hot Spots
-      
+      </span>
     </span>
   </a>
   
@@ -1805,9 +1828,9 @@
           <li class="md-nav__item">
   <a href="#fase-3-eventos-pivotais-e-swimlanes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 3 — Eventos Pivotais e Swimlanes
-      
+      </span>
     </span>
   </a>
   
@@ -1817,9 +1840,9 @@
           <li class="md-nav__item">
   <a href="#eventos-pivotais" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Eventos Pivotais
-      
+      </span>
     </span>
   </a>
   
@@ -1828,9 +1851,9 @@
           <li class="md-nav__item">
   <a href="#swimlanes-bounded-contexts" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Swimlanes (Bounded Contexts)
-      
+      </span>
     </span>
   </a>
   
@@ -1839,9 +1862,9 @@
           <li class="md-nav__item">
   <a href="#fluxo-temporal-principal" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fluxo Temporal Principal
-      
+      </span>
     </span>
   </a>
   
@@ -1860,9 +1883,9 @@
         <li class="md-nav__item">
   <a href="#design-level" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Design Level
-      
+      </span>
     </span>
   </a>
   
@@ -1872,9 +1895,9 @@
           <li class="md-nav__item">
   <a href="#fase-4-comandos-atores-e-politicas" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 4 — Comandos, Atores e Políticas
-      
+      </span>
     </span>
   </a>
   
@@ -1884,9 +1907,9 @@
           <li class="md-nav__item">
   <a href="#identidade" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🏷️ Identidade
-      
+      </span>
     </span>
   </a>
   
@@ -1895,9 +1918,9 @@
           <li class="md-nav__item">
   <a href="#campanhas" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         📋 Campanhas
-      
+      </span>
     </span>
   </a>
   
@@ -1906,9 +1929,9 @@
           <li class="md-nav__item">
   <a href="#doacoes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         💳 Doações
-      
+      </span>
     </span>
   </a>
   
@@ -1917,9 +1940,9 @@
           <li class="md-nav__item">
   <a href="#transparencia-consultas-somente-leitura" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         👁️ Transparência — Consultas (Somente Leitura)
-      
+      </span>
     </span>
   </a>
   
@@ -1933,9 +1956,9 @@
           <li class="md-nav__item">
   <a href="#fase-5-read-models-e-agregados" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Fase 5 — Read Models e Agregados
-      
+      </span>
     </span>
   </a>
   
@@ -1945,9 +1968,9 @@
           <li class="md-nav__item">
   <a href="#read-models" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🟢 Read Models
-      
+      </span>
     </span>
   </a>
   
@@ -1956,9 +1979,9 @@
           <li class="md-nav__item">
   <a href="#agregado-usuario" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🟡 Agregado: Usuario
-      
+      </span>
     </span>
   </a>
   
@@ -1967,9 +1990,9 @@
           <li class="md-nav__item">
   <a href="#agregado-campanha" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🟡 Agregado: Campanha
-      
+      </span>
     </span>
   </a>
   
@@ -1978,9 +2001,9 @@
           <li class="md-nav__item">
   <a href="#agregado-doacao" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         🟡 Agregado: Doacao
-      
+      </span>
     </span>
   </a>
   
@@ -1999,9 +2022,9 @@
         <li class="md-nav__item">
   <a href="#diagrama-de-bounded-contexts" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Diagrama de Bounded Contexts
-      
+      </span>
     </span>
   </a>
   
@@ -2010,9 +2033,9 @@
         <li class="md-nav__item">
   <a href="#decisoes-de-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Decisões de Domínio
-      
+      </span>
     </span>
   </a>
   
@@ -2022,9 +2045,9 @@
           <li class="md-nav__item">
   <a href="#d1-identidade-e-perfis" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D1 — Identidade e Perfis
-      
+      </span>
     </span>
   </a>
   
@@ -2033,9 +2056,9 @@
           <li class="md-nav__item">
   <a href="#d2-campanhas-ciclo-de-vida" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D2 — Campanhas: Ciclo de Vida
-      
+      </span>
     </span>
   </a>
   
@@ -2044,9 +2067,9 @@
           <li class="md-nav__item">
   <a href="#d3-campanhas-modo-de-encerramento" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D3 — Campanhas: Modo de Encerramento
-      
+      </span>
     </span>
   </a>
   
@@ -2055,9 +2078,9 @@
           <li class="md-nav__item">
   <a href="#d4-doacoes-fluxo-completo" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D4 — Doações: Fluxo Completo
-      
+      </span>
     </span>
   </a>
   
@@ -2066,9 +2089,9 @@
           <li class="md-nav__item">
   <a href="#d5-doacoes-race-condition" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D5 — Doações: Race Condition
-      
+      </span>
     </span>
   </a>
   
@@ -2077,9 +2100,9 @@
           <li class="md-nav__item">
   <a href="#d6-doacoes-falhas-no-worker" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D6 — Doações: Falhas no Worker
-      
+      </span>
     </span>
   </a>
   
@@ -2088,9 +2111,9 @@
           <li class="md-nav__item">
   <a href="#d7-transparencia-painel-publico" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         D7 — Transparência: Painel Público
-      
+      </span>
     </span>
   </a>
   
@@ -2128,6 +2151,7 @@
     <li class="md-path__item">
       <a href="../.." class="md-path__link">
         
+  
   <span class="md-ellipsis">
     Home
   </span>
@@ -2143,9 +2167,21 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
       <li class="md-path__item">
         <a href="../" class="md-path__link">
           
+  
   <span class="md-ellipsis">
     Modelagem de Domínio
   </span>
@@ -2164,7 +2200,7 @@
                 
                   
 
-<h1 id="event-storming-conexao-solidaria">Event Storming — Conexão Solidária<a class="headerlink" href="#event-storming-conexao-solidaria" title="Permanent link">&para;</a></h1>
+<h1 id="event-storming">Event Storming<a class="headerlink" href="#event-storming" title="Permanent link">&para;</a></h1>
 <p>Modelagem de domínio da plataforma <strong>Conexão Solidária</strong> utilizando <strong>Event Storming</strong> (Alberto Brandolini), do Big Picture até o Design Level.</p>
 <blockquote>
 <p><strong>Referência:</strong> Hackathon 9NETT — FIAP</p>
@@ -3072,7 +3108,7 @@
       <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copiado para área de transferência","clipboard.copy":"Copiar para área de transferência","search.result.more.one":"mais 1 nesta página","search.result.more.other":"# mais nesta página","search.result.none":"Nenhum documento encontrado","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Digite para iniciar a busca","search.result.term.missing":"Ausente","select.version":"Selecione a versão"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c2b142ea.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6e5f0216.min.js"></script>
       
     
   </body>
